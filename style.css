@@ -65,6 +65,16 @@ dd {
 	margin-bottom: 0.25rem;
 }
 
+.underline {
+	text-decoration: underline;
+}
+.is-clickable {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
 /* .required {
 	background-color: #BB1850;
 	color: #fff;
@@ -73,10 +83,10 @@ dd {
 	margin-left: 10px;
 } */
 
-#foot {
+/* #foot {
 	width: 780px;
 	text-align: right;
-}
+} */
 
 th, td {
 	border: 1px solid #999;

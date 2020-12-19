@@ -50,17 +50,16 @@ if(!empty($_POST)) {
         <header class="header">
             <h1 class="h1">ログイン</h1>
         </header>
-        <div class="container">
+        <div class="container is-max-desktop">
             <div id="lead">
-                <p>メールアドレスとパスワードを記入してログインしてください。</p>
-                <p>会員登録がまだの方はこちらからどうぞ。</p>
-                <p>&raquo;<a href="join/">会員登録をする</a></p>
+                <p>メールアドレスとパスワードを入力してログインしてください。</p>
+                <p class="mt-4"><a href="join" class="underline">会員登録がまだの方はこちら</a></p>
             </div>
             <form action="" method="post">
                 <dl>
                     <dt>メールアドレス</dt>
                     <dd>
-                        <input type="text" name="email" size="35" maxlength="255"
+                        <input type="text" class="input" name="email" size="35" maxlength="255"
                             value="<?php print htmlspecialchars($email, ENT_QUOTES); ?>" />
                         <?php if($error['login'] === 'blank' ): ?>
                         <p class="error">メールアドレスとパスワードをご記入ください</p>
@@ -71,22 +70,18 @@ if(!empty($_POST)) {
                     </dd>
                     <dt>パスワード</dt>
                     <dd>
-                        <input type="password" name="password" size="35" maxlength="255"
+                        <input type="password" class="input" name="password" size="35" maxlength="255"
                             value="<?php print htmlspecialchars($_POST['password'], ENT_QUOTES); ?>" />
                     </dd>
-                    <dt>ログイン情報の記録</dt>
-                    <dd>
-                        <input id="save" type="checkbox" name="save" value="on">
-                        <label for="save">次回からは自動的にログインする</label>
-                    </dd>
+                    <p class="mt-4">
+                        <input id="save" class="is-clickable" type="checkbox" name="save" value="on">
+                        <label for="save" class="is-clickable">次回からは自動的にログインする</label>
+                    </p>
                 </dl>
-                <div>
-                    <input type="submit" value="ログインする" />
+                <div class="mt-5 has-text-centered">
+                    <input type="submit" class="button is-link" value="ログインする" />
                 </div>
             </form>
-        </div>
-        <div id="foot">
-            <p><img src="images/txt_copyright.png" width="136" height="15" alt="(C) H2O Space. MYCOM" /></p>
         </div>
     </div>
 </body>
