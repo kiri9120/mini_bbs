@@ -72,72 +72,75 @@ if(isset($_REQUEST['res'])) {
 </head>
 
 <body>
-    <header class="header">
-        <h1 class="is-size-3 has-text-weight-bold">ひとこと掲示板</h1>
-    </header>
-    <div class="container is-max-desktop">
-        <div class="">
-            <div class="has-text-right mb-4"><a href="logout.php" class="button is-dark">ログアウト</a></div>
-            <form action="" method="post">
-                <dl>
-                    <dt><?php print(htmlspecialchars($member['name'], ENT_QUOTES)); ?> さん、掲示板へようこそ</dt>
-                    <dd>
-                        <textarea name="message" cols="50" rows="5"
-                            class="textarea"><?php print(htmlspecialchars($message, ENT_QUOTES)); ?></textarea>
-                        <input type="hidden" name="reply_post_id"
-                            value="<?php print(htmlspecialchars($_REQUEST['res'], ENT_QUOTES)); ?>" />
-                    </dd>
-                </dl>
-                <div>
-                    <p class="has-text-right">
-                        <input type="submit" class="button is-info" value="投稿する" />
-                    </p>
-                </div>
-            </form>
-            <div class="mt-5">
-                <?php foreach($posts as $post): ?>
-                <div class="msg">
-                    <img src="member_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>"
-                        class="image is-48x48" alt="<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>" />
-                    <p><?php print(htmlspecialchars($post['message'], ENT_QUOTES)); ?>
-                        <span class="name">（<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>）</span>[<a
-                            href="index.php?res=<?php print(htmlspecialchars($post['id'], ENT_QUOTES)); ?>">Re</a>]
-                    </p>
-                    <p class="day">
-                        <a href="view.php?id=<?php print(htmlspecialchars($post['id'])); ?>">
-                            <?php print(htmlspecialchars($post['created'], ENT_QUOTES)); ?>
-                        </a>
+    <div class="wrap">
+        <header class="header">
+            <h1 class="h1">ひとこと掲示板</h1>
+        </header>
+        <div class="container is-max-desktop">
+            <div class="">
+                <div class="has-text-right mb-4"><a href="logout.php" class="button is-dark">ログアウト</a></div>
+                <form action="" method="post">
+                    <dl>
+                        <dt><?php print(htmlspecialchars($member['name'], ENT_QUOTES)); ?> さん、掲示板へようこそ</dt>
+                        <dd>
+                            <textarea name="message" cols="50" rows="5"
+                                class="textarea"><?php print(htmlspecialchars($message, ENT_QUOTES)); ?></textarea>
+                            <input type="hidden" name="reply_post_id"
+                                value="<?php print(htmlspecialchars($_REQUEST['res'], ENT_QUOTES)); ?>" />
+                        </dd>
+                    </dl>
+                    <div>
+                        <p class="has-text-right">
+                            <input type="submit" class="button is-info" value="投稿する" />
+                        </p>
+                    </div>
+                </form>
+                <div class="mt-5">
+                    <?php foreach($posts as $post): ?>
+                    <div class="msg">
+                        <img src="member_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>"
+                            class="image is-48x48" alt="<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>" />
+                        <p><?php print(htmlspecialchars($post['message'], ENT_QUOTES)); ?>
+                            <span class="name">（<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>）</span>[<a
+                                href="index.php?res=<?php print(htmlspecialchars($post['id'], ENT_QUOTES)); ?>">Re</a>]
+                        </p>
+                        <p class="day">
+                            <a href="view.php?id=<?php print(htmlspecialchars($post['id'])); ?>">
+                                <?php print(htmlspecialchars($post['created'], ENT_QUOTES)); ?>
+                            </a>
 
-                        <!-- 別の投稿の返信の場合のみ返信元のメッセージ表示 -->
-                        <?php if($post['reply_message_id'] > 0): ?>
-                        <a href="view.php?id=<?php print(htmlspecialchars($post['reply_message_id'], ENT_QUOTES)); ?>">
-                            返信元のメッセージ</a>
-                        <?php endif; ?>
+                            <!-- 別の投稿の返信の場合のみ返信元のメッセージ表示 -->
+                            <?php if($post['reply_message_id'] > 0): ?>
+                            <a
+                                href="view.php?id=<?php print(htmlspecialchars($post['reply_message_id'], ENT_QUOTES)); ?>">
+                                返信元のメッセージ</a>
+                            <?php endif; ?>
 
-                        <!-- 自分の投稿にのみ削除ボタン表示 -->
-                        <?php if($_SESSION['id'] == $post['member_id']): ?>
-                        [<a href="delete.php?id=<?php print(htmlspecialchars($post['id'])); ?>"
-                            style="color: #F33;">削除</a>]
-                        <?php endif; ?>
-                    </p>
+                            <!-- 自分の投稿にのみ削除ボタン表示 -->
+                            <?php if($_SESSION['id'] == $post['member_id']): ?>
+                            [<a href="delete.php?id=<?php print(htmlspecialchars($post['id'])); ?>"
+                                style="color: #F33;">削除</a>]
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
-                <?php endforeach; ?>
+                <nav class="pagination is-justify-content-center mx-0 mt-4">
+
+                    <?php if($page > 1): ?>
+                    <a href="index.php?page=<?php print($page - 1); ?>" class="pagination-previous">前のページへ</a>
+                    <?php else: ?>
+                    <a class="pagination-previous" disabled>前のページへ</a>
+                    <?php endif; ?>
+
+                    <a href="index.php?page=<?php print($page + 1); ?>" class="pagination-next">次のページへ</a>
+                    <?php if($page < $maxPage): ?>
+                    <?php else: ?>
+                    <a class="pagination-next" disabled>次のページへ</a>
+                    <?php endif; ?>
+
+                </nav>
             </div>
-            <nav class="pagination is-justify-content-center mx-0 mt-4">
-
-                <?php if($page > 1): ?>
-                <a href="index.php?page=<?php print($page - 1); ?>" class="pagination-previous">前のページへ</a>
-                <?php else: ?>
-                <a class="pagination-previous" disabled>前のページへ</a>
-                <?php endif; ?>
-
-                <?php if($page < $maxPage): ?>
-                <a href="index.php?page=<?php print($page + 1); ?>" class="pagination-next">次のページへ</a>
-                <?php else: ?>
-                <a class="pagination-next" disabled>次のページへ</a>
-                <?php endif; ?>
-
-            </nav>
         </div>
     </div>
 </body>

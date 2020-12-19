@@ -45,11 +45,11 @@ if(!empty($_POST)) {
 </head>
 
 <body>
-    <div id="wrap">
-        <div id="head">
-            <h1>ログインする</h1>
-        </div>
-        <div id="content">
+    <div class="wrap">
+        <header class="header">
+            <h1 class="h1">ログイン</h1>
+        </header>
+        <div class="container">
             <div id="lead">
                 <p>メールアドレスとパスワードを記入してログインしてください。</p>
                 <p>会員登録がまだの方はこちらからどうぞ。</p>

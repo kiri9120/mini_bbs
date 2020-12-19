@@ -33,11 +33,11 @@
 
 <body>
     <div id="wrap">
-        <div id="head">
-            <h1>会員登録</h1>
-        </div>
+        <header class="header">
+            <h1 class="h1">会員登録</h1>
+        </header>
 
-        <div id="content">
+        <div class="container">
             <p>記入した内容を確認して、「登録する」ボタンをクリックしてください</p>
             <form action="" method="post">
                 <input type="hidden" name="action" value="submit" />

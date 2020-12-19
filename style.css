@@ -17,23 +17,26 @@ version: 2.8.1
 body {
 	color: #333;
 }
-
+.wrap {
+	width: 100%;
+	overflow: hidden;
+}
 .container {
 	width: 90%;
 	margin: 20px auto;
 }
-
 .header {
 	background: #106eb7;
 	color: #fff;
 	padding: 20px;
 }
-
+.h1 {
+	font-size: 2rem;
+}
 h2 {
 	font-weight: bold;
 	margin-bottom: 0.5em;
 }
-
 #content {
 	padding: 20px;
 	background: url(images/bg_content.png) left bottom no-repeat #ecf7fc;
@@ -42,10 +45,6 @@ h2 {
 	margin: 0 auto;
 	margin-bottom: 10px;
 	font-size: 153.9%;
-}
-
-* html #content {
-	height: 490px;
 }
 
 p {

@@ -64,11 +64,11 @@ if($_REQUEST['action'] === 'rewrite' && isset($_SESSION['join'])) {
 </head>
 
 <body>
-    <div id="wrap">
-        <div id="head">
-            <h1>会員登録</h1>
-        </div>
-        <div id="content">
+    <div class="wrap">
+        <header class="header">
+            <h1 class="h1">会員登録</h1>
+        </header>
+        <div class="container">
             <p>次のフォームに必要事項をご記入ください。</p>
             <form action="" method="post" enctype="multipart/form-data">
                 <dl>
@@ -116,6 +116,7 @@ if($_REQUEST['action'] === 'rewrite' && isset($_SESSION['join'])) {
                 <div><input type="submit" value="入力内容を確認する" /></div>
             </form>
         </div>
+    </div>
 </body>
 
 </html>
