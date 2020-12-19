@@ -59,7 +59,7 @@ if($_REQUEST['action'] === 'rewrite' && isset($_SESSION['join'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>会員登録</title>
-
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="../style.css" />
 </head>
 
@@ -68,21 +68,21 @@ if($_REQUEST['action'] === 'rewrite' && isset($_SESSION['join'])) {
         <header class="header">
             <h1 class="h1">会員登録</h1>
         </header>
-        <div class="container">
-            <p>次のフォームに必要事項をご記入ください。</p>
+        <div class="container is-max-desktop">
+            <p class="mb-5">次のフォームに必要事項をご入力ください。</p>
             <form action="" method="post" enctype="multipart/form-data">
                 <dl>
-                    <dt>ニックネーム<span class="required">必須</span></dt>
+                    <dt>ニックネーム<span class="tag is-danger ml-3">必須</span></dt>
                     <dd>
-                        <input type="text" name="name" size="35" maxlength="255"
+                        <input type="text" class="input" name="name" size="35" maxlength="255"
                             value="<?php print(htmlspecialchars($_POST['name'], ENT_QUOTES)); ?>" />
                     </dd>
                     <?php if($error['name'] === 'blank'): ?>
                     <p class="error">ニックネームを入力してください</p>
                     <?php endif; ?>
-                    <dt>メールアドレス<span class="required">必須</span></dt>
+                    <dt>メールアドレス<span class="tag is-danger ml-3">必須</span></dt>
                     <dd>
-                        <input type="text" name="email" size="35" maxlength="255"
+                        <input type="text" class="input" name="email" size="35" maxlength="255"
                             value="<?php print(htmlspecialchars($_POST['email'], ENT_QUOTES)); ?>" />
                     </dd>
                     <?php if($error['email'] === 'blank'): ?>
@@ -91,9 +91,9 @@ if($_REQUEST['action'] === 'rewrite' && isset($_SESSION['join'])) {
                     <?php if($error['email'] === 'duplicate'): ?>
                     <p class="error">指定されたメールアドレスは既に登録されています</p>
                     <?php endif; ?>
-                    <dt>パスワード<span class="required">必須</span></dt>
+                    <dt>パスワード<span class="tag is-danger ml-3">必須</span></dt>
                     <dd>
-                        <input type="password" name="password" size="10" maxlength="20"
+                        <input type="password" class="input" name="password" size="10" maxlength="20"
                             value="<?php print(htmlspecialchars($_POST['password'], ENT_QUOTES)); ?>" />
                     </dd>
                     <?php if($error['password'] === 'length'): ?>
@@ -102,7 +102,7 @@ if($_REQUEST['action'] === 'rewrite' && isset($_SESSION['join'])) {
                     <?php if($error['password'] === 'blank'): ?>
                     <p class="error">パスワードを入力してください</p>
                     <?php endif; ?>
-                    <dt>写真など</dt>
+                    <dt>プロフィール画像</dt>
                     <dd>
                         <input type="file" name="image" size="35" value="test" />
                     </dd>
@@ -113,7 +113,9 @@ if($_REQUEST['action'] === 'rewrite' && isset($_SESSION['join'])) {
                     <p class="error">恐れ入りますが、画像を改めて指定してください</p>
                     <?php endif; ?>
                 </dl>
-                <div><input type="submit" value="入力内容を確認する" /></div>
+                <div class="mt-6 has-text-centered">
+                    <input type="submit" class="button is-link" value="入力内容を確認する" />
+                </div>
             </form>
         </div>
     </div>

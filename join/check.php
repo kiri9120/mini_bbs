@@ -27,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>会員登録</title>
-
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="../style.css" />
 </head>
 
@@ -62,10 +62,13 @@
                         <?php endif; ?>
                     </dd>
                 </dl>
-                <div><a href="index.php?action=rewrite">&laquo;&nbsp;修正する</a> | <input type="submit" value="登録する" />
+                <div class="mt-5 has-text-centered">
+                    <a href="index.php?action=rewrite" class="button is-light">修正する</a>
+                    <input type="submit" class="button is-link ml-3" value="登録する" />
                 </div>
-            </form>
         </div>
+        </form>
+    </div>
 
     </div>
 </body>
