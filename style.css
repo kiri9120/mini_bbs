@@ -12,34 +12,21 @@ Code licensed under the BSD License:
 http://developer.yahoo.com/yui/license.html
 version: 2.8.1
 */
-body{font:13px/1.231 arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}select,input,button,textarea,button{font:99% arial,helvetica,clean,sans-serif;}table{font-size:inherit;font:100%;}pre,code,kbd,samp,tt{font-family:monospace;*font-size:108%;line-height:100%;}
 
 
 body {
-	background: url(images/bg_main.png) top center repeat-y #eeeeee;
 	color: #333;
 }
 
-#wrap {
-	width: 802px;
-	margin: 0 auto;
+.container {
+	width: 90%;
+	margin: 20px auto;
 }
 
-#head {
-	border-left: 1px solid #d4d4d4;
-	border-right: 1px solid #d4d4d4;
-	border-bottom: 1px solid #d4d4d4;
-	background: url(images/bg_head.png) bottom left repeat-x #106eb7;
+.header {
+	background: #106eb7;
 	color: #fff;
 	padding: 20px;
-	margin-bottom: 20px;
-}
-
-h1 {
-	background: url(images/bg_ttl.png) top left no-repeat;
-	padding-left: 25px;
-	font-size: 197%;
-	font-weight: bold;
 }
 
 h2 {
@@ -135,9 +122,9 @@ li {
 	float: left;
 	margin-right: 5px;
 }
-.msg p {
+/* .msg p {
 	margin: 0;
-}
+} */
 .msg .day,
 .msg .day a {
 	font-size: 80%;
