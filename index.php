@@ -81,7 +81,18 @@ if(isset($_REQUEST['res'])) {
                 <div class="has-text-right mb-4"><a href="logout.php" class="button is-dark">ログアウト</a></div>
                 <form action="" method="post">
                     <dl>
-                        <dt><?php print(htmlspecialchars($member['name'], ENT_QUOTES)); ?> さん、掲示板へようこそ</dt>
+                        <dt><?php print(htmlspecialchars($member['name'], ENT_QUOTES)); ?> さん、
+                            <?php
+                            // 時間帯によってメッセージを出しわけ
+                            $nowtime = date("H");
+                            if($nowtime >= 5 && $nowtime <= 11): ?>
+                            おはようございます。今日も一日頑張りましょう。
+                            <?php elseif($nowtime >= 12 && $nowtime <= 17): ?>
+                            こんにちは。午後も頑張りましょう。
+                            <?php else: ?>
+                            こんばんは。今日も一日お疲れさまでした。
+                            <?php endif; ?>
+                        </dt>
                         <dd>
                             <textarea name="message" cols="50" rows="5"
                                 class="textarea"><?php print(htmlspecialchars($message, ENT_QUOTES)); ?></textarea>
@@ -96,6 +107,7 @@ if(isset($_REQUEST['res'])) {
                     </div>
                 </form>
                 <div class="mt-5">
+                    <h2>みんなの投稿</h2>
                     <?php foreach($posts as $post): ?>
                     <div class="msg">
                         <?php if(!empty($post['picture'])): ?>
