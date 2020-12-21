@@ -98,8 +98,12 @@ if(isset($_REQUEST['res'])) {
                 <div class="mt-5">
                     <?php foreach($posts as $post): ?>
                     <div class="msg">
+                        <?php if(!empty($post['picture'])): ?>
                         <img src="member_picture/<?php print(htmlspecialchars($post['picture'], ENT_QUOTES)); ?>"
                             class="image is-48x48" alt="<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>" />
+                        <?php else: ?>
+                        <img src="member_picture/noicon.png" class="image is-48x48" alt="No Image" />
+                        <?php endif; ?>
                         <p><?php print(htmlspecialchars($post['message'], ENT_QUOTES)); ?>
                             <span class="name">（<?php print(htmlspecialchars($post['name'], ENT_QUOTES)); ?>）</span>[<a
                                 href="index.php?res=<?php print(htmlspecialchars($post['id'], ENT_QUOTES)); ?>">Re</a>]
