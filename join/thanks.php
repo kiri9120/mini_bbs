@@ -15,11 +15,9 @@
         <header class="header">
             <h1 class="h1">会員登録</h1>
         </header>
-        <div class="container">
-            <div id="content">
-                <p>ユーザー登録が完了しました</p>
-                <p><a href="../">ログインする</a></p>
-            </div>
+        <div class="container has-text-centered">
+            <p>ユーザー登録が完了しました</p>
+            <p class="mt-5"><a href="../" class="button is-link">ログインする</a></p>
         </div>
     </div>
 </body>
