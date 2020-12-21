@@ -91,7 +91,7 @@ if(isset($_REQUEST['res'])) {
                     </dl>
                     <div>
                         <p class="has-text-right">
-                            <input type="submit" class="button is-info" value="投稿する" />
+                            <input type="submit" class="button is-link" value="投稿する" />
                         </p>
                     </div>
                 </form>
@@ -123,7 +123,7 @@ if(isset($_REQUEST['res'])) {
                             <!-- 自分の投稿にのみ削除ボタン表示 -->
                             <?php if($_SESSION['id'] == $post['member_id']): ?>
                             [<a href="delete.php?id=<?php print(htmlspecialchars($post['id'])); ?>"
-                                style="color: #F33;">削除</a>]
+                                class="has-text-danger">削除</a>]
                             <?php endif; ?>
                         </p>
                     </div>
@@ -137,8 +137,8 @@ if(isset($_REQUEST['res'])) {
                     <a class="pagination-previous" disabled>前のページへ</a>
                     <?php endif; ?>
 
-                    <a href="index.php?page=<?php print($page + 1); ?>" class="pagination-next">次のページへ</a>
                     <?php if($page < $maxPage): ?>
+                    <a href="index.php?page=<?php print($page + 1); ?>" class="pagination-next">次のページへ</a>
                     <?php else: ?>
                     <a class="pagination-next" disabled>次のページへ</a>
                     <?php endif; ?>
