@@ -38,8 +38,11 @@ if(!empty($_POST)) {
 
     // アップされた画像ファイルをDBに保存
 	if(empty($error)) {
-		$image = date('YmdHis') . $_FILES['image']['name'];
-		move_uploaded_file($_FILES['image']['tmp_name'], '../member_picture/' . $image);
+        $image = '';
+        if(!empty($fileName)) {
+            $image = date('YmdHis') . $_FILES['image']['name'];
+            move_uploaded_file($_FILES['image']['tmp_name'], '../member_picture/' . $image);
+        }
 		$_SESSION['join'] = $_POST;
 		$_SESSION['join']['image'] = $image;
 		header('Location: check.php');
