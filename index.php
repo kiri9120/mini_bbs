@@ -67,7 +67,7 @@ if(isset($_REQUEST['res'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ひとこと掲示板</title>
 
-    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="bulma/css/bulma.min.css">
     <link rel="stylesheet" href="style.css" />
 </head>
 
