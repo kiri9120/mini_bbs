@@ -1,17 +1,8 @@
 <?php
+//例外処理
 try {
-    // $db = new PDO('mysql:dbname=mini_bbs;port=8889;host=localhost;charset=utf8', 'root', 'root');
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-    $db_name = substr($url["path"], 1);
-    $db_host = $url["host"];
-    $user = $url["user"];
-    $password = $url["pass"];
-
-    $dsn = "mysql:dbname=".$db_name.";host=".$db_host;
-
-    $pdo=new PDO($dsn,$user,$password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
-} catch(PDOException $e) {
-    print('DB接続エラー：' . $e->getMessage());
+    $db = new PDO('mysql:dbname=heroku_d3dc7474987db84;host=us-cdbr-east-02.cleardb.com;charset=utf8','b62e0538d36255','36fe19fb');
+} catch(PDOException $e){
+    print('DB接続エラー:'.$e->getMessage());
 }
  ?>
