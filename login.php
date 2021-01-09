@@ -2,7 +2,7 @@
 session_start();
 require('dbconnect.php');
 
-if($_COOKIE['email'] !== '') {
+if(isset($_COOKIE['email'])) {
   $email = $_COOKIE['email'];
 }
 
@@ -61,17 +61,17 @@ if(!empty($_POST)) {
                     <dd>
                         <input type="text" class="input" name="email" size="35" maxlength="255"
                             value="<?php print htmlspecialchars($email, ENT_QUOTES); ?>" />
-                        <?php if($error['login'] === 'blank' ): ?>
+                        <?php if(isset($error['login']) && $error['login'] === 'blank' ): ?>
                         <p class="error">メールアドレスとパスワードをご記入ください</p>
                         <?php endif; ?>
-                        <?php if($error['login'] === 'failed' ): ?>
+                        <?php if(isset($error['login']) && $error['login'] === 'failed' ): ?>
                         <p class="error">ログインに失敗しました。正しくご記入ください</p>
                         <?php endif; ?>
                     </dd>
                     <dt>パスワード</dt>
                     <dd>
                         <input type="password" class="input" name="password" size="35" maxlength="255"
-                            value="<?php print htmlspecialchars($_POST['password'], ENT_QUOTES); ?>" />
+                            value="<?php if(isset($_POST['password'])) { print htmlspecialchars($_POST['password'], ENT_QUOTES); } ?>" />
                     </dd>
                     <p class="mt-4">
                         <input id="save" class="is-clickable" type="checkbox" name="save" value="on">
